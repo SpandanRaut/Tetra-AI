@@ -390,8 +390,6 @@ body {
 .hero__title .line {
   display: block;
   overflow: hidden;
-  padding-bottom: 0.15em;
-  margin-bottom: -0.15em;
 }
 .hero__title .word {
   display: inline-block;
@@ -1250,8 +1248,9 @@ section[id] {
   border-color: var(--cyan-dim);
 }
 .member__avatar {
-  width: 64px;
-  height: 64px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
   border: 1px solid var(--cyan-dim);
   border-radius: 50%;
   display: grid;
