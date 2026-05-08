@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Tetra AI — A four-person studio building intelligent websites, AI assistants, generative systems, and workflow automation." />
+  <meta name="theme-color" content="#05070a" />
+
+  <title>Tetra AI — Intelligent systems, crafted by hand.</title>
+
+  <link rel="icon" type="image/png" href="Logo.png" />
+
+  <!-- Fonts: Instrument Serif (display) + Geist (body) + JetBrains Mono (technical) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="reset.css" />
+  <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="animations.css" />
+  <link rel="stylesheet" href="responsive.css" />
+</head>
+
+<body>
+
+  <!-- LOADER -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <div class="loader__logo">
+        <img src="Logo.png" alt="" />
+      </div>
+      <div class="loader__text">
+        <span class="loader__label">TETRA</span>
+        <span class="loader__pct" id="loaderPct">00</span>
+      </div>
+      <div class="loader__bar">
+        <div class="loader__bar-fill" id="loaderBar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+
+  <!-- AURORA SHADER BACKGROUND -->
+  <canvas class="aurora" id="aurora" aria-hidden="true"></canvas>
+
+  <!-- Grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav__logo" aria-label="Tetra AI — home">
+      <span class="nav__logo-mark">
+        <img src="Logo.png" alt="Tetra AI" />
+      </span>
+      <span class="nav__logo-text">TETRA<span>/AI</span></span>
+    </a>
+
+    <nav class="nav__links">
+      <a href="#services" data-num="01">Services</a>
+      <a href="#work"     data-num="02">Work</a>
+      <a href="#process"  data-num="03">Process</a>
+      <a href="#team"     data-num="04">Team</a>
+      <a href="#contact"  data-num="05">Contact</a>
+    </nav>
+
+    <a href="#contact" class="nav__cta" data-cursor="hover">
+      <span>Start a project</span>
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+
+    <button class="nav__burger" id="navBurger" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero__three" id="threeMount"></div>
+
+      <div class="hero__corner hero__corner--tl" aria-hidden="true"></div>
+      <div class="hero__corner hero__corner--tr" aria-hidden="true"></div>
+      <div class="hero__corner hero__corner--bl" aria-hidden="true"></div>
+      <div class="hero__corner hero__corner--br" aria-hidden="true"></div>
+
+      <div class="hero__inner">
+        <div class="hero__meta">
+          <span class="hero__dot"></span>
+          <span class="mono">A four-person studio · est. 2024 · United Kingdom</span>
+        </div>
+
+        <h1 class="hero__title">
+          <span class="line"><span class="word">Intelligent</span></span>
+          <span class="line"><span class="word">systems,</span></span>
+          <span class="line"><span class="word italic">crafted</span> <span class="word">by hand.</span></span>
+        </h1>
+
+        <p class="hero__sub">
+          We build websites, AI assistants, generative tools, and quiet
+          automations that make a business feel sharper. Small team.
+          Direct line. No middlemen.
+        </p>
+
+        <div class="hero__actions">
+          <a href="#contact" class="btn btn--primary" data-cursor="hover">
+            <span class="btn__label">Start a project</span>
+            <span class="btn__arrow">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </a>
+          <a href="#work" class="btn btn--ghost" data-cursor="hover">
+            <span class="btn__label">See our work</span>
+          </a>
+        </div>
+
+        <div class="hero__stats">
+          <div class="stat">
+            <div class="stat__num" data-count="04">04</div>
+            <div class="stat__label">Engineers, no juniors</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">100<em>%</em></div>
+            <div class="stat__label">Built in-house</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">∞</div>
+            <div class="stat__label">Iterations on a build</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num">24<em>h</em></div>
+            <div class="stat__label">First reply</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <span class="mono">SCROLL</span>
+        <span class="hero__scroll-line"></span>
+      </div>
+    </section>
+
+    <!-- TRUST STRIP -->
+    <section class="trust">
+      <div class="trust__label mono">BUILT WITH</div>
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>Next.js</span><span>·</span>
+          <span>React</span><span>·</span>
+          <span>TypeScript</span><span>·</span>
+          <span>Python</span><span>·</span>
+          <span>Anthropic Claude</span><span>·</span>
+          <span>OpenAI</span><span>·</span>
+          <span>Postgres</span><span>·</span>
+          <span>Vercel</span><span>·</span>
+          <span>Cloudflare</span><span>·</span>
+          <span>Supabase</span><span>·</span>
+          <span>n8n</span><span>·</span>
+          <span>LangChain</span><span>·</span>
+          <span>Next.js</span><span>·</span>
+          <span>React</span><span>·</span>
+          <span>TypeScript</span><span>·</span>
+          <span>Python</span><span>·</span>
+          <span>Anthropic Claude</span><span>·</span>
+          <span>OpenAI</span><span>·</span>
+          <span>Postgres</span><span>·</span>
+          <span>Vercel</span><span>·</span>
+          <span>Cloudflare</span><span>·</span>
+          <span>Supabase</span><span>·</span>
+          <span>n8n</span><span>·</span>
+          <span>LangChain</span><span>·</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+      <header class="section-head">
+        <div class="section-head__num mono">01 / SERVICES</div>
+        <h2 class="section-head__title">
+          Four disciplines.<br/>
+          <span class="italic">One team.</span>
+        </h2>
+        <p class="section-head__sub">
+          Most agencies stop at one. We bridge them, so your website,
+          your AI, your data, and your operations actually talk to each
+          other.
+        </p>
+      </header>
+
+      <div class="services__grid">
+
+        <article class="service tilt" data-cursor="hover">
+          <div class="service__num mono">01</div>
+          <div class="service__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <rect x="6" y="10" width="36" height="28" rx="2" stroke="currentColor" stroke-width="1.2"/>
+              <path d="M6 16H42" stroke="currentColor" stroke-width="1.2"/>
+              <circle cx="10" cy="13" r="0.8" fill="currentColor"/>
+              <circle cx="13" cy="13" r="0.8" fill="currentColor"/>
+              <circle cx="16" cy="13" r="0.8" fill="currentColor"/>
+              <path d="M12 24H22M12 28H28M12 32H20" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+              <rect x="30" y="22" width="8" height="12" rx="1" stroke="currentColor" stroke-width="1.2"/>
+            </svg>
+          </div>
+          <h3 class="service__title">Website Design<br/>&amp; Build</h3>
+          <p class="service__copy">
+            Custom marketing sites, e-commerce, and product pages built
+            for speed, SEO, and the brand you actually want to be — not
+            a Squarespace template with your logo on top.
+          </p>
+          <ul class="service__list">
+            <li>Brand &amp; design system</li>
+            <li>Headless CMS (Sanity, Contentful)</li>
+            <li>E-commerce (Shopify, Stripe)</li>
+            <li>Performance &amp; SEO</li>
+          </ul>
+          <div class="service__corner" aria-hidden="true"></div>
+        </article>
+
+        <article class="service tilt" data-cursor="hover">
+          <div class="service__num mono">02</div>
+          <div class="service__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <rect x="8" y="8" width="32" height="22" rx="3" stroke="currentColor" stroke-width="1.2"/>
+              <path d="M16 30L14 36L20 32" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+              <circle cx="18" cy="19" r="1.4" fill="currentColor"/>
+              <circle cx="24" cy="19" r="1.4" fill="currentColor"/>
+              <circle cx="30" cy="19" r="1.4" fill="currentColor"/>
+              <path d="M30 38C30 41 32 43 36 43" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+              <circle cx="36" cy="43" r="2" stroke="currentColor" stroke-width="1.2"/>
+            </svg>
+          </div>
+          <h3 class="service__title">AI Chatbots<br/>&amp; Assistants</h3>
+          <p class="service__copy">
+            Customer-facing bots that don't make people roll their eyes.
+            Trained on your docs, connected to your tools, with proper
+            handoff to humans when it matters.
+          </p>
+          <ul class="service__list">
+            <li>Support &amp; sales assistants</li>
+            <li>RAG over your knowledge base</li>
+            <li>WhatsApp / Slack / web widgets</li>
+            <li>Analytics &amp; conversation review</li>
+          </ul>
+          <div class="service__corner" aria-hidden="true"></div>
+        </article>
+
+        <article class="service tilt" data-cursor="hover">
+          <div class="service__num mono">03</div>
+          <div class="service__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <path d="M24 6L42 16V32L24 42L6 32V16L24 6Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+              <path d="M24 6V42M6 16L42 32M42 16L6 32" stroke="currentColor" stroke-width="0.6" opacity="0.5"/>
+              <circle cx="24" cy="24" r="4" fill="currentColor" opacity="0.3"/>
+              <circle cx="24" cy="24" r="2" fill="currentColor"/>
+            </svg>
+          </div>
+          <h3 class="service__title">Generative AI<br/>Systems</h3>
+          <p class="service__copy">
+            Custom tools that generate the boring stuff for you —
+            product copy, image variants, structured reports, internal
+            dashboards. Built around your data, not a generic prompt.
+          </p>
+          <ul class="service__list">
+            <li>Bespoke LLM applications</li>
+            <li>Image / document generation</li>
+            <li>Internal tooling &amp; admin panels</li>
+            <li>Human-in-the-loop review</li>
+          </ul>
+          <div class="service__corner" aria-hidden="true"></div>
+        </article>
+
+        <article class="service tilt" data-cursor="hover">
+          <div class="service__num mono">04</div>
+          <div class="service__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none">
+              <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.2"/>
+              <circle cx="36" cy="12" r="4" stroke="currentColor" stroke-width="1.2"/>
+              <circle cx="12" cy="36" r="4" stroke="currentColor" stroke-width="1.2"/>
+              <circle cx="36" cy="36" r="4" stroke="currentColor" stroke-width="1.2"/>
+              <circle cx="24" cy="24" r="4" fill="currentColor"/>
+              <path d="M16 12H32M12 16V32M36 16V32M16 36H32" stroke="currentColor" stroke-width="1.2"/>
+              <path d="M15 15L21 21M33 15L27 21M15 33L21 27M33 33L27 27" stroke="currentColor" stroke-width="1.2"/>
+            </svg>
+          </div>
+          <h3 class="service__title">Workflow<br/>Automation</h3>
+          <p class="service__copy">
+            The quiet wins. Hooking your CRM into your inbox, your
+            spreadsheet into your AI, your form submissions into your
+            calendar. Less clicking, more doing.
+          </p>
+          <ul class="service__list">
+            <li>API &amp; CRM integrations</li>
+            <li>Document &amp; email automation</li>
+            <li>Scheduled jobs &amp; pipelines</li>
+            <li>Monitoring &amp; alerting</li>
+          </ul>
+          <div class="service__corner" aria-hidden="true"></div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- WORK / CASE STUDIES -->
+    <section class="work" id="work">
+      <header class="section-head">
+        <div class="section-head__num mono">02 / WORK</div>
+        <h2 class="section-head__title">
+          A few of the<br/>
+          <span class="italic">things we've built.</span>
+        </h2>
+      </header>
+
+      <div class="work__list">
+
+        <article class="case tilt">
+          <div class="case__visual case__visual--browser">
+            <div class="case__browser">
+              <div class="case__browser-bar">
+                <span></span><span></span><span></span>
+                <div class="case__browser-url mono">https://mayadecoration.netlify.app</div>
+              </div>
+              <div class="case__browser-body">
+                <div class="case__skeleton case__skeleton--lg"></div>
+                <div class="case__skeleton case__skeleton--md"></div>
+                <div class="case__skeleton case__skeleton--sm"></div>
+                <div class="case__cards">
+                  <div class="case__card"></div>
+                  <div class="case__card"></div>
+                  <div class="case__card"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="case__meta">
+            <div class="case__tag mono">WEBSITE · BRAND · CMS</div>
+            <h3 class="case__title">Maya Decoration</h3>
+            <p class="case__copy">
+              Maya Decoration is a Nepalese cultural event decoration
+              company specializing in weddings, Bartabandha, Pasni,
+              and traditional celebrations. Elegant cultural setups with
+              floral designs, stage decoration, lighting, and customized
+              themes to make every event memorable.
+            </p>
+            <div class="case__metrics">
+              <div><strong>2.4×</strong><span>enquiries</span></div>
+              <div><strong>98</strong><span>Lighthouse</span></div>
+              <div><strong>0.8s</strong><span>LCP</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="case case--reverse tilt">
+          <div class="case__visual case__visual--chat">
+            <div class="case__chat">
+              <div class="case__chat-msg case__chat-msg--user">
+                Where's my order #2841?
+              </div>
+              <div class="case__chat-msg case__chat-msg--bot">
+                <span class="case__chat-typing">
+                  <span></span><span></span><span></span>
+                </span>
+              </div>
+              <div class="case__chat-msg case__chat-msg--bot case__chat-msg--full">
+                Your order shipped Tuesday via DPD. Tracking: <strong>4521 8839</strong>. Estimated delivery: tomorrow before 6pm.
+              </div>
+              <div class="case__chat-msg case__chat-msg--user">
+                Can I change the address?
+              </div>
+              <div class="case__chat-msg case__chat-msg--bot case__chat-msg--full">
+                I've put a hold on the parcel. What's the new address?
+              </div>
+            </div>
+          </div>
+          <div class="case__meta">
+            <div class="case__tag mono">AI ASSISTANT · RAG · INTEGRATIONS</div>
+            <h3 class="case__title">Northwind Support Bot</h3>
+            <p class="case__copy">
+              A customer-facing assistant for an e-commerce brand.
+              Trained on their help docs, wired into Shopify and DPD,
+              and routes anything tricky to a real person with full
+              context.
+            </p>
+            <div class="case__metrics">
+              <div><strong>71%</strong><span>auto-resolved</span></div>
+              <div><strong>−43%</strong><span>ticket volume</span></div>
+              <div><strong>4.8/5</strong><span>CSAT</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="case tilt">
+          <div class="case__visual case__visual--gen">
+            <div class="case__gen">
+              <div class="case__gen-grid">
+                <div class="case__gen-tile" style="--d:0s"></div>
+                <div class="case__gen-tile" style="--d:.1s"></div>
+                <div class="case__gen-tile" style="--d:.2s"></div>
+                <div class="case__gen-tile" style="--d:.3s"></div>
+                <div class="case__gen-tile" style="--d:.4s"></div>
+                <div class="case__gen-tile" style="--d:.5s"></div>
+                <div class="case__gen-tile" style="--d:.6s"></div>
+                <div class="case__gen-tile" style="--d:.7s"></div>
+                <div class="case__gen-tile" style="--d:.8s"></div>
+              </div>
+              <div class="case__gen-label mono">GENERATING · 9 / 12</div>
+            </div>
+          </div>
+          <div class="case__meta">
+            <div class="case__tag mono">GENERATIVE · INTERNAL TOOL</div>
+            <h3 class="case__title">Atlas Catalog Engine</h3>
+            <p class="case__copy">
+              An internal tool for a catalogue retailer that turns one
+              product spec into 12 channel-ready listings — Amazon, eBay,
+              their own site, social — with copy, alt-text, and image
+              variants. What used to take a week now takes 40 seconds.
+            </p>
+            <div class="case__metrics">
+              <div><strong>340</strong><span>SKUs / day</span></div>
+              <div><strong>−92%</strong><span>copywriting hours</span></div>
+              <div><strong>12</strong><span>channels</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="case case--reverse tilt">
+          <div class="case__visual case__visual--flow">
+            <div class="case__flow">
+              <div class="case__flow-node case__flow-node--in">
+                <span class="mono">FORM</span>
+              </div>
+              <div class="case__flow-arrow"></div>
+              <div class="case__flow-node case__flow-node--mid">
+                <span class="mono">CLAUDE</span>
+              </div>
+              <div class="case__flow-arrow"></div>
+              <div class="case__flow-node case__flow-node--mid">
+                <span class="mono">CRM</span>
+              </div>
+              <div class="case__flow-arrow"></div>
+              <div class="case__flow-node case__flow-node--out">
+                <span class="mono">EMAIL</span>
+              </div>
+              <div class="case__flow-pulse"></div>
+            </div>
+          </div>
+          <div class="case__meta">
+            <div class="case__tag mono">AUTOMATION · INTEGRATIONS</div>
+            <h3 class="case__title">Vega Operations Pipeline</h3>
+            <p class="case__copy">
+              For a B2B services firm: every web enquiry now gets
+              enriched, scored, routed to the right person, and replied
+              to with a personalised email — all before anyone's even
+              opened their inbox in the morning.
+            </p>
+            <div class="case__metrics">
+              <div><strong>4 min</strong><span>median reply</span></div>
+              <div><strong>3.1×</strong><span>qualified leads</span></div>
+              <div><strong>0</strong><span>missed enquiries</span></div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="process" id="process">
+      <header class="section-head">
+        <div class="section-head__num mono">03 / PROCESS</div>
+        <h2 class="section-head__title">
+          How a build<br/>
+          <span class="italic">actually goes.</span>
+        </h2>
+        <p class="section-head__sub">
+          No discovery-phase theatre. No 40-page proposals. We meet, we
+          scope, we ship — usually in four to eight weeks.
+        </p>
+      </header>
+
+      <div class="process__steps">
+        <div class="process__line" aria-hidden="true"></div>
+
+        <div class="process__step">
+          <div class="process__marker"><span class="mono">01</span></div>
+          <div class="process__content">
+            <h3>Conversation</h3>
+            <p>
+              A 30-minute call. We ask a lot of "why" and "what does good
+              look like" — because if we get this part wrong, nothing
+              after it lands. No charge.
+            </p>
+            <span class="process__time mono">30 MIN · FREE</span>
+          </div>
+        </div>
+
+        <div class="process__step">
+          <div class="process__marker"><span class="mono">02</span></div>
+          <div class="process__content">
+            <h3>Scope &amp; quote</h3>
+            <p>
+              You get a one-page document — what we'll build, how long
+              it takes, what it costs. No mystery line items, no
+              "discovery phase" upsell.
+            </p>
+            <span class="process__time mono">2–3 DAYS</span>
+          </div>
+        </div>
+
+        <div class="process__step">
+          <div class="process__marker"><span class="mono">03</span></div>
+          <div class="process__content">
+            <h3>Build, in the open</h3>
+            <p>
+              You get a staging URL on day one and weekly walkthroughs
+              over Loom. We default to shipping early and iterating —
+              not unveiling something six weeks in.
+            </p>
+            <span class="process__time mono">4–8 WEEKS</span>
+          </div>
+        </div>
+
+        <div class="process__step">
+          <div class="process__marker"><span class="mono">04</span></div>
+          <div class="process__content">
+            <h3>Launch &amp; tune</h3>
+            <p>
+              We push it live, watch it for two weeks, fix what's quirky,
+              and hand over clean docs. Then you decide if you want us
+              on retainer or you take it from there.
+            </p>
+            <span class="process__time mono">2 WEEKS · INCLUDED</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIAL -->
+    <section class="testimonial">
+      <div class="testimonial__inner">
+        <div class="testimonial__mark" aria-hidden="true">"</div>
+        <blockquote class="testimonial__quote">
+          They shipped what three other agencies had quoted us 6 months
+          and £2000 for — in five weeks, for a fraction of that. The
+          difference is they actually <em>build</em> the thing
+          themselves.
+        </blockquote>
+        <div class="testimonial__attrib">
+          <div class="testimonial__avatar"></div>
+          <div class="testimonial__person">
+            <strong>Pradeep Shrestha</strong>
+            <span class="mono">OWNER · Maya Decoration</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="team" id="team">
+      <header class="section-head">
+        <div class="section-head__num mono">04 / TEAM</div>
+        <h2 class="section-head__title">
+          Four people.<br/>
+          <span class="italic">No layers.</span>
+        </h2>
+        <p class="section-head__sub">
+          When you email us, an engineer reads it. When you brief us,
+          an engineer hears it. There is no account manager,
+          intermediary, or junior in a back room.
+        </p>
+      </header>
+
+      <div class="team__grid">
+        <article class="member tilt">
+          <div class="member__avatar"><img src="spandan.png" alt="Spandan Raut" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" /></div>
+          <h3 class="member__name">Spandan Raut</h3>
+          <div class="member__role mono">FOUNDER · FULL-STACK</div>
+          <p class="member__bio">
+            Builds the spine — backend, infra, integrations. Started the
+            studio after years of watching clients pay agencies to
+            outsource the actual work.
+          </p>
+        </article>
+
+        <article class="member tilt">
+          <div class="member__avatar"><img src="bhuraj.jpg" alt="Bhuraj Shrestha" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" /></div>
+          <h3 class="member__name">Bhuraj Shrestha</h3>
+          <div class="member__role mono">CO-FOUNDER · DESIGN &amp; FRONT-END</div>
+          <p class="member__bio">
+            Owns the surface — visual design, motion, front-end
+            engineering. Believes a 200ms interaction can change how
+            people feel about your brand.
+          </p>
+        </article>
+
+        <article class="member tilt">
+          <div class="member__avatar"><span class="member__shape" aria-hidden="true"></span></div>
+          <h3 class="member__name">Aashish Shrestha</h3>
+          <div class="member__role mono">AI ENGINEER</div>
+          <p class="member__bio">
+            Lives in the model layer — prompt engineering, RAG, fine-
+            tuning, evals. Translates "we want it to feel smart" into
+            something that actually is.
+          </p>
+        </article>
+
+        <article class="member tilt">
+          <div class="member__avatar"><span class="member__shape" aria-hidden="true"></span></div>
+          <h3 class="member__name">Safal Bhattarai</h3>
+          <div class="member__role mono">AUTOMATION ENGINEER</div>
+          <p class="member__bio">
+            Connects everything to everything else — APIs, CRMs,
+            inboxes, spreadsheets. Quietly removes the most boring
+            hours from your week.
+          </p>
+        </article>
+      </div>
+
+      <p class="team__note mono">
+        * Names and roles are placeholders — drop yours in
+        <code>index.html</code> when ready.
+      </p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <header class="section-head">
+        <div class="section-head__num mono">05 / QUESTIONS</div>
+        <h2 class="section-head__title">
+          The things we<br/>
+          <span class="italic">get asked most.</span>
+        </h2>
+      </header>
+
+      <div class="faq__list">
+        <details class="qa">
+          <summary>
+            <span>Why no pricing on the site?</span>
+            <span class="qa__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="qa__body">
+            <p>
+              Because every project is different and a price tag without
+              context is misleading. After a 30-minute call we send a
+              one-page quote with a fixed number. If we can't help, we'll
+              tell you that too.
+            </p>
+          </div>
+        </details>
+
+        <details class="qa">
+          <summary>
+            <span>How small is too small a project?</span>
+            <span class="qa__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="qa__body">
+            <p>
+              We take on small briefs all the time — a single landing
+              page, a focused chatbot, a one-week automation sprint. If
+              it's interesting and useful to you, it's worth a call.
+            </p>
+          </div>
+        </details>
+
+        <details class="qa">
+          <summary>
+            <span>Do you work with non-technical founders?</span>
+            <span class="qa__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="qa__body">
+            <p>
+              Constantly. You don't need to know what a vector database
+              is. You need to know what you're trying to do for your
+              customers — we'll handle the rest, and explain anything we
+              build in plain English.
+            </p>
+          </div>
+        </details>
+
+        <details class="qa">
+          <summary>
+            <span>What about ongoing support?</span>
+            <span class="qa__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="qa__body">
+            <p>
+              Two weeks of post-launch tuning are always included. After
+              that you can keep us on a small monthly retainer for
+              monitoring and changes, or take the codebase and run with
+              it — your choice.
+            </p>
+          </div>
+        </details>
+
+        <details class="qa">
+          <summary>
+            <span>Which AI models do you use?</span>
+            <span class="qa__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="qa__body">
+            <p>
+              Whichever fits — usually Claude (Anthropic), GPT (OpenAI),
+              or open-weights models for local / on-prem builds. We pick
+              based on the task, not what's trending this week.
+            </p>
+          </div>
+        </details>
+
+        <details class="qa">
+          <summary>
+            <span>Where are you based?</span>
+            <span class="qa__icon" aria-hidden="true"></span>
+          </summary>
+          <div class="qa__body">
+            <p>
+              United Kingdom, fully remote-first. We work with clients
+              across Europe, North America, and the Middle East. Calls
+              happen on whatever timezone works for you.
+            </p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <canvas class="contact__bg" id="contactBg" aria-hidden="true"></canvas>
+
+      <div class="contact__inner">
+        <header class="section-head section-head--center">
+          <div class="section-head__num mono">06 / CONTACT</div>
+          <h2 class="contact__title">
+            Let's build<br/>
+            <span class="italic">something good.</span>
+          </h2>
+        </header>
+
+        <form class="contact__form" id="contactForm" novalidate>
+          <div class="contact__row">
+            <div class="field">
+              <label for="name" class="mono">YOUR NAME</label>
+              <input type="text" id="name" name="name" required autocomplete="name" />
+              <div class="field__line"></div>
+            </div>
+            <div class="field">
+              <label for="email" class="mono">EMAIL</label>
+              <input type="email" id="email" name="email" required autocomplete="email" />
+              <div class="field__line"></div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class="mono">WHAT ARE YOU LOOKING TO BUILD?</label>
+            <div class="chips" id="chips">
+              <button type="button" class="chip" data-value="Website">Website</button>
+              <button type="button" class="chip" data-value="AI Chatbot">AI Chatbot</button>
+              <button type="button" class="chip" data-value="Generative AI">Generative AI</button>
+              <button type="button" class="chip" data-value="Automation">Automation</button>
+              <button type="button" class="chip" data-value="Not sure yet">Not sure yet</button>
+            </div>
+            <input type="hidden" id="service" name="service" value="" />
+          </div>
+
+          <div class="field">
+            <label for="message" class="mono">TELL US A BIT MORE</label>
+            <textarea id="message" name="message" rows="5" required placeholder="What are you trying to do? Who's it for? Any deadlines we should know about?"></textarea>
+            <div class="field__line"></div>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--submit" data-cursor="hover">
+            <span class="btn__label">Send it over</span>
+            <span class="btn__arrow">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M3 13L13 3M13 3H6M13 3V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </button>
+        </form>
+
+        <div class="contact__alt">
+          <span class="mono">OR EMAIL US DIRECTLY ·</span>
+          <a href="mailto:team@tetrainfo.org" data-cursor="hover">team@tetrainfo.org</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="footer__logo">
+          <img src="Logo.png" alt="" />
+          <span>TETRA<em>/AI</em></span>
+        </div>
+        <p class="footer__tag">
+          Intelligent systems, crafted by hand. A four-person studio
+          building websites, AI assistants, generative tools, and
+          automations.
+        </p>
+        <div class="footer__clock mono">
+          <span class="footer__clock-dot"></span>
+          <span id="clock">--:--:--</span>
+          <span>UTC</span>
+        </div>
+      </div>
+
+      <div class="footer__cols">
+        <div class="footer__col">
+          <h4 class="mono">SERVICES</h4>
+          <ul>
+            <li><a href="#services">Websites</a></li>
+            <li><a href="#services">AI assistants</a></li>
+            <li><a href="#services">Generative tools</a></li>
+            <li><a href="#services">Automation</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 class="mono">STUDIO</h4>
+          <ul>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 class="mono">ELSEWHERE</h4>
+          <ul>
+            <li><a href="#" data-cursor="hover">LinkedIn ↗</a></li>
+            <li><a href="#" data-cursor="hover">GitHub ↗</a></li>
+            <li><a href="#" data-cursor="hover">Twitter / X ↗</a></li>
+            <li><a href="#" data-cursor="hover">Read.cv ↗</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4 class="mono">CONTACT</h4>
+          <ul>
+            <li><a href="mailto:team@tetrainfo.org" data-cursor="hover">team@tetrainfo.org</a></li>
+            <li><a href="#contact">Start a project →</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span class="mono">© <span id="year">2024</span> TETRA AI · UNITED KINGDOM</span>
+      <span class="mono">DESIGNED &amp; BUILT IN-HOUSE</span>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="main.js"></script>
+  <script src="aurora-shader.js"></script>
+  <script src="three-scene.js"></script>
+  <script src="contact-bg.js"></script>
+  <script src="animations.js"></script>
+  <script src="tilt.js"></script>
+  <script src="cursor.js"></script>
+  <script src="form.js"></script>
+</body>
+</html>

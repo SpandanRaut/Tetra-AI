@@ -1,0 +1,108 @@
+/* =====================================================
+   responsive.css — breakpoint adjustments
+   ===================================================== */
+
+/* — Large tablet — */
+@media (max-width: 1100px) {
+  .nav__cta { display: none; }
+  .services__grid { grid-template-columns: 1fr; }
+  .team__grid { grid-template-columns: repeat(2, 1fr); }
+  .footer__top { grid-template-columns: 1fr; gap: 3rem; }
+  .case, .case--reverse {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .case--reverse .case__visual { order: 0; }
+}
+
+/* — Tablet — */
+@media (max-width: 900px) {
+  .nav__links {
+    position: fixed;
+    top: 0; right: 0;
+    width: 80vw;
+    max-width: 360px;
+    height: 100vh;
+    background: var(--obsidian-2);
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 4rem 2rem;
+    gap: 1.5rem;
+    transform: translateX(100%);
+    transition: transform 0.5s var(--ease);
+    border-left: 1px solid var(--cyan-dim);
+  }
+  .nav__links.is-open { transform: translateX(0); }
+  .nav__links a { font-size: 1.2rem; }
+  .nav__burger { display: block; z-index: 200; }
+  .trust { grid-template-columns: 1fr; gap: 1rem; }
+  .trust__label { text-align: center; }
+}
+
+/* — Mobile — */
+@media (max-width: 768px) {
+  .hero { padding-top: 7rem; padding-bottom: 3rem; min-height: auto; }
+  .hero__title { font-size: clamp(2.4rem, 11vw, 4rem); }
+  .hero__stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+  }
+  .stat { padding: 0; border-right: none; }
+  .stat:nth-child(odd) {
+    border-right: 1px solid var(--line-soft);
+    padding-right: 1rem;
+  }
+  .hero__scroll { display: none; }
+  .hero__corner { width: 24px; height: 24px; }
+
+  .marquee__track {
+    gap: 1.5rem;
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+
+  .section-head { margin-bottom: 3rem; }
+
+  .case { padding: 1.5rem; gap: 1.5rem; }
+  .case__metrics { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+  .case__metrics strong { font-size: 1.2rem; }
+
+  .process__step { grid-template-columns: 60px 1fr; gap: 1rem; }
+  .process__line { left: 30px; }
+  .process__marker { width: 60px; }
+  .process__marker span { width: 40px; height: 40px; font-size: 0.75rem; }
+
+  .team__grid { grid-template-columns: 1fr; gap: 1rem; }
+
+  .testimonial__mark { font-size: 6rem; top: -2rem; }
+
+  .footer__cols { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .contact__row { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* — Small mobile — */
+@media (max-width: 480px) {
+  :root { --pad-x: 1.25rem; }
+  .nav__logo-text { display: none; }
+  .hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .btn { justify-content: center; }
+  .service { padding: 2rem 1.5rem; }
+  .footer__cols { grid-template-columns: 1fr; }
+  .case__metrics { grid-template-columns: 1fr 1fr; }
+  .case__metrics > div:nth-child(3) { grid-column: span 2; }
+}
+
+/* — Wider screens — */
+@media (min-width: 1600px) {
+  :root { --pad-x: clamp(2rem, 6vw, 6rem); }
+}
