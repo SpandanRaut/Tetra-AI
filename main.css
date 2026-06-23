@@ -1230,10 +1230,11 @@ section[id] {
    ===================================================== */
 .team__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 1.2rem;
 }
 .member {
+  grid-column: span 2;
   position: relative;
   padding: 2rem;
   border: 1px solid var(--line-soft);
@@ -1242,58 +1243,75 @@ section[id] {
     radial-gradient(400px circle at var(--mx, 50%) var(--my, 50%), var(--cyan-faint), transparent 40%),
     rgba(15, 19, 24, 0.4);
   backdrop-filter: blur(8px);
-  transition: border-color 0.4s var(--ease);
+  transition: border-color 0.4s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  overflow: hidden;
+}
+.member::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
 }
 .member:hover {
   border-color: var(--cyan-dim);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px -16px rgba(78, 226, 240, 0.15);
 }
-.member__avatar {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
+.member:hover::after {
+  opacity: 1;
+}
+.member:nth-child(4) { grid-column: 2 / span 2; }
+.member:nth-child(5) { grid-column: 4 / span 2; }
+.member__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.6rem;
+}
+.member__monogram {
+  width: 52px;
+  height: 52px;
   border: 1px solid var(--cyan-dim);
-  border-radius: 50%;
+  border-radius: var(--r-md);
   display: grid;
   place-items: center;
-  margin-bottom: 1.5rem;
-  background: var(--obsidian-2);
-  position: relative;
-  overflow: hidden;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--cyan-bright);
+  background: var(--cyan-faint);
+  letter-spacing: 0.04em;
+  transition: background 0.3s var(--ease), border-color 0.3s var(--ease);
 }
-.member__shape {
-  width: 26px;
-  height: 26px;
-  background:
-    conic-gradient(from 0deg, var(--cyan-bright), var(--cyan), var(--cyan-bright));
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-  animation: memberSpin 8s linear infinite;
-  filter: drop-shadow(0 0 6px var(--cyan-glow));
+.member:hover .member__monogram {
+  background: rgba(78, 226, 240, 0.1);
+  border-color: var(--cyan);
+}
+.member__idx {
+  font-size: 0.6rem;
+  color: var(--grey-3);
+  letter-spacing: 0.12em;
+  padding-top: 0.2rem;
 }
 .member__name {
   font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   color: var(--white);
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.4rem;
 }
-.member__role {
-  margin-bottom: 1rem;
+.member__tag {
+  font-size: 0.6rem;
   color: var(--cyan-dim);
-  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
 }
 .member__bio {
   font-size: 0.92rem;
-  line-height: 1.5;
+  line-height: 1.6;
   color: var(--grey);
-}
-.team__note {
-  margin-top: 3rem;
-  text-align: center;
-  color: var(--grey-3);
-  font-size: 0.65rem;
-}
-.team__note code {
-  font-family: var(--font-mono);
-  color: var(--cyan-dim);
 }
 
 /* =====================================================

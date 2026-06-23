@@ -11,7 +11,6 @@
     ...document.querySelectorAll('.service'),
     ...document.querySelectorAll('.case'),
     ...document.querySelectorAll('.process__step'),
-    ...document.querySelectorAll('.member'),
     ...document.querySelectorAll('.qa'),
     ...document.querySelectorAll('.contact__form .field'),
     ...document.querySelectorAll('.footer__col'),
@@ -38,6 +37,20 @@
   });
 
   targets.forEach(el => io.observe(el));
+
+  // — Team grid stagger — observe the parent, CSS handles child delays —
+  const teamGrid = document.querySelector('.team__grid');
+  if (teamGrid) {
+    const teamIO = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          teamIO.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
+    teamIO.observe(teamGrid);
+  }
 
   // — Count-up animation on hero stats —
   const stats = document.querySelectorAll('.stat__num[data-count]');
